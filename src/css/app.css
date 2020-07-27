@@ -1,0 +1,167 @@
+.layout-transparent .mdl-layout__header,
+.layout-transparent .mdl-layout__drawer-button {
+  background-color: rgb(255,87,34);
+}
+
+::-webkit-scrollbar {
+  width: 0px;  
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(255,87,34);
+}
+
+#resultado-pesquisa {
+    font-size: 1.5em;
+}
+.container-row {
+  margin: 1px;
+  padding: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.container-column {
+    flex-direction: column;
+    justify-content: center;
+}
+.row {
+  text-align: center;
+  justify-content: center;
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+}
+
+.controls {
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+.push-height {
+  display: flex;
+  height: 1em;
+}
+.mdl-button {
+  margin: 1%;
+  border-radius: 2px;
+}
+.mdl-button.large {
+  padding-right: 6em;
+  padding-left: 6em;
+  height: 50px;
+  font-size: 18px;
+}
+.mdl-button.add-task-btn {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.mdl-dialog.small {
+  width: 20%;
+}
+.mdl-dialog.large {
+  width: 40%;
+}
+#dlgContact {
+  width: 340px;
+  text-align: center;
+}
+#dlgContact .mdl-dialog__actions {
+  flex-direction: column-reverse;
+  padding: 8px 8px 8px 8px;  
+}
+.mdl-dialog__actions {
+  justify-content: center;
+}
+.mdl-layout__content {
+  flex: 1 0 auto;
+}
+.mdl-mini-footer {
+  flex: 0 0 auto;
+  padding: 6px 2px;
+}
+.mdl-dialog__content p {
+  font-size: 22px;
+  font-weight: bold;
+}
+.useless-space {
+  padding-top: 3%;
+}
+section {
+  text-align: center;
+  padding: 3%;
+}
+section p {
+  padding: 1% 24%;
+  font-size: 24px;
+  text-align: justify;
+  word-spacing: 6px;
+}
+.list-control {
+  width: 32%;
+}
+.list-control li {
+  border: 0.5px solid rgb(255,87,34);
+  border-radius: 2px;
+  margin: 5px;
+}
+span.mdl-list__item-primary-content {
+  padding: 12px;
+}
+section ul {
+  text-align: center;
+  justify-content: center;
+}
+section ul .mdl-list__item {
+  padding: 1% 24%;
+  font-size: 24px;
+  text-align: justify;
+  word-spacing: 6px;
+}
+.mdl-mini-footer {
+  color: aliceblue;
+}
+.mdl-snackbar {
+  background-color: rgb(255,87,34);
+}
+.mdl-chip {
+  margin: 2px 8px;
+}
+.mdl-data-table td {
+  text-align: left;
+}
+.mdl-data-table {
+  width: auto;
+}
+@media (max-width: 700px) {
+  .container-row {
+      padding-top: 10%;
+      padding-bottom: 10%;
+  }
+  .mdl-dialog.small {
+    width: 55%;
+  }
+  .mdl-dialog.large {
+    width: 80%;
+  }
+  .mdl-button.large {
+    margin-top: 1em;
+  }
+  .mdl-dialog__title {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .mdl-dialog__actions {
+    flex-direction: column-reverse;
+    padding: 8px 8px 8px 8px;
+  }
+  section li {
+    font-size: 20px;
+  }
+  section p {
+    padding: 1% 2%;
+  }
+  .list-control {
+    width: 88%;
+  }
+}

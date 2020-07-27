@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://www.consultancm.log.br/sitemap.xml

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="Application that helps you to get your tasks done.">
+    <meta name="msapplication-TileColor" content="#f3a521">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#f3a521">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="192x192" href="./images/icons/icon-192x192.png">    
+    <link rel="icon" type="image/png" sizes="96x96" href="./images/icons/icon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/icons/icon-16x16.png">
+    <link rel="stylesheet" href="./vendors/mdl/material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="manifest" href="manifest.json">
+
+    <title>Consulta NCM</title>
+</head>
+
+<body>
+    <div class="layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header mdl-layout__header--transparent">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Consulta NCM</span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link contact-link" href="#">Contato</a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Consulta NCM</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link contact-link" href="#">Contato</a>
+            </nav>
+        </div>
+        
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div class="push-height"></div>
+                <div class="container-column">
+                    <section class="useless-space"></section>
+                    <div class="row">
+                     
+                    </div>
+                    <div class="row">                        
+                        <div class="controls">
+                            <form action="#">
+                                <div class="mdl-textfield mdl-js-textfield" id="divSearchNCM">
+                                  <input class="mdl-textfield__input" type="text" id="edtNCM" maxlength="8" minlength="3">
+                                  <label class="mdl-textfield__label" for="edtNCM">Digite aqui</label>
+                                </div>
+                                <div class="mdl-tooltip mdl-tooltip--large" for="divSearchNCM">
+                                    Digite os primeiros 3 dígitos do código NCM
+                                 </div>                              
+                                  
+                                <button id="btn-search" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                                    Pesquisar
+                                 </button>  
+                                 <div class="mdl-tooltip mdl-tooltip--large" for="btn-search">
+                                    Clique aqui para pesquisar
+                                 </div>
+                              </form>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <label id="resultado-pesquisa"></label>
+                        <br><br>
+                    </div>                    
+                    <div class="row">   
+                        <section class="useless-space"></section>
+                        <table class="mdl-data-table mdl-js-data-table" id="ncmTable" hidden>
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th class="mdl-data-table__cell--non-numeric">Codigo</th>
+                                <th class="mdl-data-table__cell--non-numeric">Descrição</th>
+                                <th class="mdl-data-table__cell--non-numeric">Vigente</th>
+                                <th class="mdl-data-table__cell--non-numeric">Inclusão</th>
+                                <th class="mdl-data-table__cell--non-numeric">Norma Inclusão</th>
+                                <th class="mdl-data-table__cell--non-numeric">Exclusão</th>
+                                <th class="mdl-data-table__cell--non-numeric">Norma Exclusão</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>                        
+                    </div>
+                                       
+                </div>
+                <section class="useless-space"></section>
+                <section>
+                    <h3>
+                        O que é NCM?
+                    </h3>
+                    <p>
+                        A Nomenclatura Comum do Mercosul (NCM) é um código de oito dígitos usado para identificar a natureza dos produtos comercializados no Brasil 
+                        e nos outros países do Mercosul, esta nomeclatura foi adotada em janeiro de 1995.
+                        Estes códigos utilizam o método internacional de classificação conhecido como SH (Sistema Harmonizado de Designação e Codificação de Mercadorias)
+                    </p>
+                    <section class="useless-space"></section>
+                    <h3>O que é o código NCM de uma mercadoria?</h3>
+                    <p>
+                        A NCM contém pouco mais de 10.000 códigos, sendo que seus códigos de 8 dígitos são chamados comumente de "Códigos NCM", pois são os que 
+                        definem as alíquotas de impostos no comércio exterior e de diversos tributos internos nas operações com mercadorias, entre outras utilizações.
+                    </p>
+                    <section class="useless-space"></section>
+                    <p>
+                        O Código NCM é composto por 8 posições sendo elas
+                    </p>                        
+                    <div>
+                        <ul class="mdl-list">
+                            <li class="mdl-list__item"><b>00</b>&nbsp;00&nbsp;00&nbsp;0&nbsp;0&nbsp; Capítulo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2 primeiros dígitos da SH)</li>
+                            <li class="mdl-list__item">00&nbsp;<b>00</b>&nbsp;00&nbsp;0&nbsp;0&nbsp; Posição&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4 primeiros dígitos da SH)</li>
+                            <li class="mdl-list__item">00&nbsp;00&nbsp;<b>00</b>&nbsp;0&nbsp;0&nbsp; Subposição&nbsp;&nbsp;(6 primeiros dígitos da SH)</li>
+                            <li class="mdl-list__item">00&nbsp;00&nbsp;00&nbsp;<b>0</b>&nbsp;0&nbsp; Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(7º dígito da NCM)</li>
+                            <li class="mdl-list__item">00&nbsp;00&nbsp;00&nbsp;0&nbsp;<b>0</b>&nbsp; Subitem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(8º dígito da NCM)</li>
+                        </ul>
+                    </div>
+                    <br>
+                    <i>fonte: <a href="https://receita.economia.gov.br/orientacao/aduaneira/classificacao-fiscal-de-mercadorias/ncm">receita.economia.gov.br</a></i>
+                    <section class="useless-space"></section>
+
+                    <div class="row">
+                        <h3>Relação de Capítulos</h3>   
+                    </div>
+                    <div class="row">
+                        <table class="mdl-data-table mdl-js-data-table" id="ncmTable">
+                            <thead>
+                            <tr>
+                                <th class="mdl-data-table__cell--non-numeric">Codigo</th>
+                                <th class="mdl-data-table__cell--non-numeric">Descrição</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>01</td><td>Animais vivos</td></tr>
+                                <tr><td>02</td><td>Carnes e miudezas, comestíveis</td></tr>
+                                <tr><td>03</td><td>Peixes e crustáceos, moluscos e outros invertebrados aquáticos</td></tr>
+                                <tr><td>04</td><td>Leite e lacticínios; ovos de aves; mel natural; produtos comestíveis de origem animal, não especificados nem compreendidos noutros Capítulos</td></tr>
+                                <tr><td>05</td><td>Outros produtos de origem animal, não especificados nem compreendidosnoutros Capítulos</td></tr>
+                                <tr><td>06</td><td>Plantas vivas e produtos de floricultura</td></tr>
+                                <tr><td>07</td><td>Produtos hortícolas, plantas, raízes e tubérculos, comestíveis</td></tr>
+                                <tr><td>08</td><td>Frutas; cascas de frutos cítricos e de melões</td></tr>
+                                <tr><td>09</td><td>Café, chá, mate e especiarias</td></tr>
+                                <tr><td>10</td><td>Cereais</td></tr>
+                                <tr><td>11</td><td>Produtos da indústria de moagem; malte; amidos e féculas; inulina; glúten de trigo</td></tr>
+                                <tr><td>12</td><td>Sementes e frutos oleaginosos; grãos, sementes e frutos diversos; plantas industriais ou medicinais; palhas e forragens</td></tr>
+                                <tr><td>13</td><td>Gomas, resinas e outros sucos e extratos vegetais</td></tr>
+                                <tr><td>14</td><td>Matérias para entrançar e outros produtos de origem vegetal, não especificados nem compreendidos noutros Capítulos</td></tr>
+                                <tr><td>15</td><td>Gorduras e óleos animais ou vegetais; produtos da sua dissociação; gorduras alimentares elaboradas; ceras de origem animal ou vegetal</td></tr>
+                                <tr><td>16</td><td>Preparações de carne, de peixes ou de crustáceos, de moluscos ou de outros invertebrados aquáticos</td></tr>
+                                <tr><td>17</td><td>Açúcares e produtos de confeitaria</td></tr>
+                                <tr><td>18</td><td>Cacau e suas preparações</td></tr>
+                                <tr><td>19</td><td>Preparações à base de cereais, farinhas, amidos, féculas ou leite; produtos de pastelaria</td></tr>
+                                <tr><td>20</td><td>Preparações de produtos hortícolas, de frutas ou de outras partes de plantas</td></tr>
+                                <tr><td>21</td><td>Preparações alimentícias diversas</td></tr>
+                                <tr><td>22</td><td>Bebidas, líquidos alcoólicos e vinagres</td></tr>
+                                <tr><td>23</td><td>Resíduos e desperdícios das indústrias alimentares; alimentos preparados para animais</td></tr>
+                                <tr><td>24</td><td>Tabaco e seus sucedâneos manufaturados</td></tr>
+                                <tr><td>25</td><td>Sal; enxofre; terras e pedras; gesso, cal e cimento</td></tr>
+                                <tr><td>26</td><td>Minérios, escórias e cinzas</td></tr>
+                                <tr><td>27</td><td>Combustíveis minerais, óleos minerais e produtos da sua destilação; matérias betuminosas; ceras minerais</td></tr>
+                                <tr><td>28</td><td>Produtos químicos inorgânicos; compostos inorgânicos ou orgânicos de metais preciosos, de elementos radioativos, de metais das terras rarasou de isótopos</td></tr>
+                                <tr><td>29</td><td>Produtos químicos orgânicos</td></tr>
+                                <tr><td>30</td><td>Produtos farmacêuticos</td></tr>
+                                <tr><td>31</td><td>Adubos (fertilizantes)</td></tr>
+                                <tr><td>32</td><td>Extratos tanantes e tintoriais; taninos e seus derivados; pigmentos eoutras matérias corantes; tintas e vernizes; mástiques; tintas de escrever</td></tr>
+                                <tr><td>33</td><td>Óleos essenciais e resinóides; produtos de perfumaria ou de toucador preparados e preparações cosméticas</td></tr>
+                                <tr><td>34</td><td>Sabões, agentes orgânicos de superfície, preparações para lavagem, preparações lubrificantes, ceras artificiais, ceras preparadas, produtosde conservação e limpeza, velas e artigos semelhantes, massas ou pastas para modelar...</td></tr>
+                                <tr><td>35</td><td>Matérias albuminóides; produtos à base de amidos ou de féculas modificados; colas; enzimas</td></tr>
+                                <tr><td>36</td><td>Pólvoras e explosivos; artigos de pirotecnia; fósforos; ligas pirofóricas; matérias inflamáveis</td></tr>
+                                <tr><td>37</td><td>Produtos para fotografia e cinematografia</td></tr>
+                                <tr><td>38</td><td>Produtos diversos das indústrias químicas</td></tr>
+                                <tr><td>39</td><td>Plásticos e suas obras</td></tr>
+                                <tr><td>40</td><td>Borracha e suas obras</td></tr>
+                                <tr><td>41</td><td>Peles, exceto as peles com pelo, e couros</td></tr>
+                                <tr><td>42</td><td>Obras de couro; artigos de correeiro ou de seleiro; artigos de viagem, bolsas e artefatos semelhantes; obras de tripa</td></tr>
+                                <tr><td>43</td><td>Peles com pelo e suas obras; peles com pelo artificiais</td></tr>
+                                <tr><td>44</td><td>Madeira, carvão vegetal e obras de madeira</td></tr>
+                                <tr><td>45</td><td>Cortiça e suas obras</td></tr>
+                                <tr><td>46</td><td>Obras de espartaria ou de cestaria</td></tr>
+                                <tr><td>47</td><td>Pastas de madeira ou de outras matérias fibrosas celulósicas; papel ou cartão para reciclar (desperdícios e aparas)</td></tr>
+                                <tr><td>48</td><td>Papel e cartão; obras de pasta de celulose, de papel ou de cartão</td></tr>
+                                <tr><td>49</td><td>Livros, jornais, gravuras e outros produtos das indústrias gráficas; textos manuscritos ou datilografados, planos e plantas</td></tr>
+                                <tr><td>50</td><td>Seda</td></tr>
+                                <tr><td>51</td><td>Lã, pelos finos ou grosseiros; fios e tecidos de crina</td></tr>
+                                <tr><td>52</td><td>Algodão</td></tr>
+                                <tr><td>53</td><td>Outras fibras têxteis vegetais; fios de papel e tecidos de fios de papel</td></tr>
+                                <tr><td>54</td><td>Filamentos sintéticos ou artificiais; lâminas e formas semelhantes dematérias têxteis sintéticas ou artificiais</td></tr>
+                                <tr><td>55</td><td>Fibras sintéticas ou artificiais, descontínuas</td></tr>
+                                <tr><td>56</td><td>Pastas (ouates), feltros e falsos tecidos; fios especiais; cordéis, cordas e cabos; artigos de cordoaria</td></tr>
+                                <tr><td>57</td><td>Tapetes e outros revestimentos para pisos (pavimentos), de matérias têxteis</td></tr>
+                                <tr><td>58</td><td>Tecidos especiais; tecidos tufados; rendas; tapeçarias; passamanarias; bordados</td></tr>
+                                <tr><td>59</td><td>Tecidos impregnados, revestidos, recobertos ou estratificados; artigos para usos técnicos de matérias têxteis</td></tr>
+                                <tr><td>60</td><td>Tecidos de malha</td></tr>
+                                <tr><td>61</td><td>Vestuário e seus acessórios, de malha</td></tr>
+                                <tr><td>62</td><td>Vestuário e seus acessórios, exceto de malha</td></tr>
+                                <tr><td>63</td><td>Outros artefatos têxteis confeccionados; sortidos; artefatos de matérias têxteis, calçados, chapéus e artefatos de uso semelhante, usados; trapos</td></tr>
+                                <tr><td>64</td><td>Calçados, polainas e artefatos semelhantes; suas partes</td></tr>
+                                <tr><td>65</td><td>Chapéus e artefatos de uso semelhante, e suas partes</td></tr>
+                                <tr><td>66</td><td>Guarda-chuvas, sombrinhas, guarda-sóis, bengalas, bengalas-assentos, chicotes, pingalins, e suas partes</td></tr>
+                                <tr><td>67</td><td>Penas e penugem preparadas e suas obras; flores artificiais; obras decabelo</td></tr>
+                                <tr><td>68</td><td>Obras de pedra, gesso, cimento, amianto, mica ou de matérias semelhantes</td></tr>
+                                <tr><td>69</td><td>Produtos cerâmicos</td></tr>
+                                <tr><td>70</td><td>Vidro e suas obras</td></tr>
+                                <tr><td>71</td><td>Pérolas naturais ou cultivadas, pedras preciosas ou semipreciosas e semelhantes, metais preciosos, metais folheados ou chapeados de metais preciosos (plaquê), e suas obras; bijuterias; moedas</td></tr>
+                                <tr><td>72</td><td>Ferro fundido, ferro e aço</td></tr>
+                                <tr><td>73</td><td>Obras de ferro fundido, ferro ou aço</td></tr>
+                                <tr><td>74</td><td>Cobre e suas obras</td></tr>
+                                <tr><td>75</td><td>Níquel e suas obras</td></tr>
+                                <tr><td>76</td><td>Alumínio e suas obras</td></tr>
+                                <tr><td>78</td><td>Chumbo e suas obras</td></tr>
+                                <tr><td>79</td><td>Zinco e suas obras</td></tr>
+                                <tr><td>80</td><td>Estanho e suas obras</td></tr>
+                                <tr><td>81</td><td>Outros metais comuns; ceramais (cermets); obras dessas matérias</td></tr>
+                                <tr><td>82</td><td>Ferramentas, artefatos de cutelaria e talheres, e suas partes, de metais comuns</td></tr>
+                                <tr><td>83</td><td>Obras diversas de metais comuns</td></tr>
+                                <tr><td>84</td><td>Reatores nucleares, caldeiras, máquinas, aparelhos e instrumentos mecânicos, e suas partes</td></tr>
+                                <tr><td>85</td><td>Máquinas, aparelhos e materiais elétricos, e suas partes; aparelhos de gravação ou de reprodução de som, aparelhos de gravação ou de reprodução de imagens e de som em televisão, e suas partes e acessórios</td></tr>
+                                <tr><td>86</td><td>Veículos e material para vias férreas ou semelhantes, e suas partes; aparelhos mecânicos (incluindo os eletromecânicos) de sinalização paravias de comunicação</td></tr>
+                                <tr><td>87</td><td>Veículos automóveis, tratores, ciclos e outros veículos terrestres, suas partes e acessórios</td></tr>
+                                <tr><td>88</td><td>Aeronaves e aparelhos espaciais, e suas partes</td></tr>
+                                <tr><td>89</td><td>Embarcações e estruturas flutuantes</td></tr>
+                                <tr><td>90</td><td>Instrumentos e aparelhos de óptica, de fotografia, de cinematografia,de medida, de controle ou de precisão; instrumentos e aparelhos médico-cirúrgicos; suas partes e acessórios</td></tr>
+                                <tr><td>91</td><td>Artigos de relojoaria</td></tr>
+                                <tr><td>92</td><td>Instrumentos musicais; suas partes e acessórios</td></tr>
+                                <tr><td>93</td><td>ARMAS E MUNIçõES; SUAS PARTES E ACESSóRIOS</td></tr>
+                                <tr><td>94</td><td>Móveis; mobiliário médico-cirúrgico; colchões, almofadas e semelhantes; aparelhos de iluminação não especificados nem compreendidos noutrosCapítulos; anúncios, cartazes ou tabuletas e placas indicadoras, luminosos e artigos semelhantes; construções pré-</td></tr>
+                                <tr><td>95</td><td>Brinquedos, jogos, artigos para divertimento ou para esporte; suas partes e acessórios</td></tr>
+                                <tr><td>96</td><td>Obras diversas</td></tr>
+                                <tr><td>97</td><td>Objetos de arte, de coleção e antiguidades</td>
+                            </tbody>
+                        </table> 
+                    </div>
+                </section>                                
+            </div>
+        </main>
+
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <div class="mdl-logo"></div>
+                <ul class="mdl-mini-footer__link-list">
+                    <li>Consulta NCM 2020 &copy; All rights reserved</li>
+                    <li></li>
+                </ul>
+            </div>
+        </footer>
+    </div>    
+
+    <dialog class="mdl-dialog large" id="dlgContact" hidden>
+        <h4 class="mdl-dialog__title">Contato</h4>
+        <div class="mdl-dialog__content">
+            <p>Deixe sua sugestão ou comentário</p>
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="name" minlength="3" maxlength="60">
+                    <label class="mdl-textfield__label" for="name">Nome</label>
+                </div>
+                <br>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="email" id="email" minlength="3" maxlength="30">
+                    <label class="mdl-textfield__label" for="email">E-mail</label>
+                </div>
+                <br>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <textarea class="mdl-textfield__input" type="text" rows="3" id="comment" minlength="5" maxlength="300"></textarea>
+                    <label class="mdl-textfield__label" for="comment">Deixe um comentário</label>
+                </div>
+            </form>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button large mdl-js-button mdl-button--raised close">FECHAR</button>
+            <button type="button" class="mdl-button large mdl-js-button mdl-button--raised mdl-button--colored ok">ENVIAR</button>
+        </div>
+    </dialog>
+     
+    <div id="toast-notification" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+    </div>
+
+</body>
+
+<script type="text/javascript" src="./vendors/mdl/material.min.js"></script>
+<script type="text/javascript" src="./vendors/mdl/dialog-polyfill.min.js"></script>
+
+<!-- delete -->
+<script async type="module" src="./scripts/send-contact-email.js"></script>
+<script async type="module" src="./scripts/app.js"></script>
+<script async type="module" src="./index.js"></script>
+<!-- delete -->
+
+<script async type="module" src="./scripts/app.bundle.js"></script> 
+
+</html>
